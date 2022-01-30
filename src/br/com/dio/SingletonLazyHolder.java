@@ -2,23 +2,15 @@ package br.com.dio;
 
 public class SingletonLazyHolder {
 
-    private static SingletonLazyHolder Instancia;
-
-    public static class InstanceHolder {
-            private static SingletonLazyHolder InstanceHolder;
-
-        }
-
-
-        private SingletonLazyHolder(){
-            super();
-
-        }
-
-    public static SingletonLazyHolder getInstancia() {
-        return Instancia;
+    private static class InstanceHolder {
+        public static SingletonLazyHolder instancia = new SingletonLazyHolder();
     }
 
+    private SingletonLazyHolder() {
+        super();
+    }
 
-
+    public static SingletonLazyHolder getInstancia() {
+        return InstanceHolder.instancia;
+    }
 }

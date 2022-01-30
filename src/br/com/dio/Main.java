@@ -1,5 +1,7 @@
 package br.com.dio;
 
+import br.com.dio.facade.Facade;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -17,5 +19,30 @@ public class Main {
         System.out.println(holder);
         holder = SingletonLazyHolder.getInstancia();
         System.out.println(holder);
+
+
+
+
+        Comportamento defensivo = new ComportamentoDefensivo();
+        Comportamento normal = new ComportamentoNormal();
+        Comportamento agressivo = new ComportamentoAgressivo();
+
+        Robo robo = new Robo();
+        robo.setComportamento(normal);
+        robo.mover();
+        robo.mover();
+        robo.setComportamento(defensivo);
+        robo.mover();
+        robo.setComportamento(agressivo);
+        robo.mover();
+        robo.mover();
+        robo.mover();
+
+        // Facade
+
+        Facade facade = new Facade();
+        facade.migrarCliente("Jherssica Carvalho", "451987564");
     }
+
+
 }
